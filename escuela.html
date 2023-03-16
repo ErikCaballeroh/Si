@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>😸😸😸</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<!-- Incluimos Bootstrap y jQuery -->
+	<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<style>
+		.switch input[type="checkbox"] {
+		  position: absolute;
+		  left: -9999px;
+		}
+		.switch label {
+		  display: block;
+		  position: relative;
+		  width: 60px;
+		  height: 30px;
+		  background-color: #dddddd;
+		  border-radius: 15px;
+		  cursor: pointer;
+		}
+		.switch label:after {
+		  content: "";
+		  display: block;
+		  position: absolute;
+		  left: 2px;
+		  top: 2px;
+		  width: 26px;
+		  height: 26px;
+		  background-color: #ffffff;
+		  border-radius: 13px;
+		  transition: all 0.3s;
+		}
+		.switch input[type="checkbox"]:checked + label {
+		  background-color: #00a65a;
+		}
+		.switch input[type="checkbox"]:checked + label:after {
+		  left: 32px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container mt-5">
+		<h1>La vida de un estudiante</h1>
+		<div class="row mt-5">
+			<div class="col-sm-4 mb-4">
+				<p>Tener buenas notas</p>
+				<div class="switch">
+					<input type="checkbox" id="check1">
+					<label for="check1"></label>
+				</div>
+			</div>
+			<div class="col-sm-4 mb-4">
+				<p>Vida social</p>
+				<div class="switch">
+					<input type="checkbox" id="check2">
+					<label for="check2"></label>
+				</div>
+			</div>
+			<div class="col-sm-4 mb-4">
+				<p>Dormir</p>
+				<div class="switch">
+					<input type="checkbox" id="check3">
+					<label for="check3"></label>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<script>
+$(document).ready(function() {
+  // Controlar el comportamiento de los checkboxes
+  $("input[type='checkbox']").change(function() {
+    var count = $("input[type='checkbox']:checked").length;
+    if (count > 2) {
+      // Si se activan más de dos checkboxes, desactivar uno de ellos al azar
+      var checkBoxesToUncheck = $("input[type='checkbox']:checked").toArray();
+      var randomIndex = Math.floor(Math.random() * checkBoxesToUncheck.length);
+      var checkBoxToUncheck = checkBoxesToUncheck[randomIndex];
+      $(checkBoxToUncheck).prop("checked", false);
+
+			function playSound() {
+					var sound = new Audio('sound.mp3');
+					sound.play();
+			}
+
+			var switch1 = document.getElementById("check1");
+			var switch2 = document.getElementById("check2");
+			var switch3 = document.getElementById("check3");
+
+			switch1.addEventListener('change', function() {
+					if (switch1.checked) {
+							playSound();
+					}
+			});
+
+			switch2.addEventListener('change', function() {
+					if (switch2.checked) {
+							playSound();
+					}
+			});
+
+			switch3.addEventListener('change', function() {
+					if (switch3.checked) {
+							playSound();
+					}
+			});
+
+    }
+  });
+});
+
+
+
+</script>
+</body>
+</html>
